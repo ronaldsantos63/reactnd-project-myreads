@@ -10,7 +10,6 @@ const BookItem = props => {
     const handleOnChange = (ev, book) =>{
         onMoveBookShelf(book, ev.target.value)
     }
-    // console.log("book >>> ", book);
 
     return (
         <li>
@@ -36,15 +35,7 @@ const BookItem = props => {
                     />
                 </div>
                 <div className="book-authors">
-                    {book.authors !== undefined && (
-                        book.authors.map((author, key) => (
-                            <Highlight
-                              key={key}
-                              text={author}
-                              highlight={highlight}
-                            />
-                        ))
-                    )}
+                    {book.authors ? <Highlight text={book.authors.join(', ')} highlight={highlight}/> :''}
                 </div>
             </div>
         </li>
