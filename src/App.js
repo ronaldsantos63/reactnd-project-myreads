@@ -24,14 +24,7 @@ class BooksApp extends React.Component {
   }
 
   componentDidMount() {
-    this.setLoading(true);
-    BooksAPI.getAll()
-      .then((books) => {
-        this.setLoading(false);
-        this.setState(() => ({
-          books
-        }))
-      });
+    this.updateBookShelf();
   }
 
   addBook = (book) => {
@@ -53,6 +46,17 @@ class BooksApp extends React.Component {
     this.removeBook(book)
     this.addBook(book)
     BooksAPI.update(book, shelf);
+  }
+
+  updateBookShelf() {
+    this.setLoading(true);
+    BooksAPI.getAll()
+      .then((books) => {
+        this.setLoading(false);
+        this.setState(() => ({
+          books
+        }));
+      });
   }
 
   render() {
