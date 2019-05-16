@@ -1,6 +1,6 @@
 # MyReads Project
 
-Project Resolution MyReads for course udacity fundamentals
+MyReads Project helps you organize about which books are being read, which you would like to read or which have already been read
 
 ## TL;DR
 
