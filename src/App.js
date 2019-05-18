@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import LoadingOverlay from 'react-loading-overlay';
 
 import './App.css'
@@ -10,6 +10,7 @@ import * as BooksAPI from './BooksAPI'
 // Components
 import Search from "./Components/Search";
 import Shelf from './Components/BookShelf/Shelf';
+import PageNotFound from "./Components/PageNotFound";
 
 class BooksApp extends React.Component {
   state = {
@@ -68,13 +69,15 @@ class BooksApp extends React.Component {
         spinner
         text='Searching...'>
           <div className="app">
-            <Route exact path="/" render={() => (
-              <Shelf books={books} onMoveBookShelf={this.moveBookToShelf}/>
-            )} />
-
-            <Route path="/search" render={() => (
-              <Search books={books} onMoveBookShelf={this.moveBookToShelf} />
-            )} />
+            <Switch>
+              <Route exact path="/" render={() => (
+                <Shelf books={books} onMoveBookShelf={this.moveBookToShelf}/>
+              )} />
+              <Route path="/search" render={() => (
+                <Search books={books} onMoveBookShelf={this.moveBookToShelf} />
+              )} />
+              <Route component={PageNotFound} />
+            </Switch>
           </div>
       </LoadingOverlay>
     )
