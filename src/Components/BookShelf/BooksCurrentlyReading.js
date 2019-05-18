@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import BookItem from '../BookItem'
 
+/* TODO: Você pode criar apenas um componente com um array de variáveis estáticas (estantes) para evitar essa repetição de código nos componentes BooksWantToRead.js, BooksRead.js e BookCurrentlyReading.js. :thumbsup:*/
+
 const BooksCurrentlyReading = props => {
     const {books, onMoveBookShelf} = props;
 
