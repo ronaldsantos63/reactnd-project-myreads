@@ -17,7 +17,7 @@ const BookItem = props => {
                 <div className="book-top">
                     <div 
                         className="book-cover" 
-                        style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks !== undefined ? book.imageLinks.thumbnail : thumbnaiDefault })` }}></div>
+                        style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks && book.imageLinks.thumbnail ? book.imageLinks.thumbnail : thumbnaiDefault })` }}></div>
                     <div className="book-shelf-changer">
                         <select value={book.shelf} onChange={(ev) => handleOnChange(ev, book)}>
                             <option value="move" disabled>Move to...</option>
